@@ -17,6 +17,11 @@ class IVehicleBuilder(ABC):
 
     @staticmethod
     @abstractmethod
+    def __init__() -> None:
+        raise NotImplementedError
+
+    @staticmethod
+    @abstractmethod
     def set_vtype() -> None:
         raise NotImplementedError
 

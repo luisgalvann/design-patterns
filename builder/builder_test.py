@@ -10,8 +10,8 @@ class AbstractBuilderTest(TestCase):
         with self.assertRaises(TypeError) as cm:
             instance = IVehicleBuilder()
 
-        msg = "Can't instantiate abstract class IVehicleBuilder "\
-              "with abstract methods get_vehicle, set_vtype, set_wheels"
+        msg = "Can't instantiate abstract class IVehicleBuilder with abstract "\
+              "methods __init__, get_vehicle, set_vtype, set_wheels"
         self.assertEqual(msg, str(cm.exception))
 
     def test_abstract_inheritance_error(self):
@@ -21,12 +21,15 @@ class AbstractBuilderTest(TestCase):
         with self.assertRaises(TypeError) as cm:
             instance = NewClass()
 
-        msg = "Can't instantiate abstract class NewClass "\
-              "with abstract methods get_vehicle, set_vtype, set_wheels"
+        msg = "Can't instantiate abstract class NewClass with abstract "\
+              "methods __init__, get_vehicle, set_vtype, set_wheels"
         self.assertEqual(msg, str(cm.exception))
 
     def test_abstract_inheritance(self):
         class NewClass(IVehicleBuilder):
+            def __init__(self):
+                pass
+
             def set_vtype(self):
                 pass
 
