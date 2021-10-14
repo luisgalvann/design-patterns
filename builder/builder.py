@@ -1,8 +1,8 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 
 
 class Vehicle:
-    ''' Final product implementation '''
+    ''' Product class implementation '''
 
     def __init__(self):
         self.vtype = None
@@ -12,7 +12,7 @@ class Vehicle:
         return f'The {self.vtype} is running'
 
 
-class IVehicleBuilder(metaclass=ABCMeta):
+class IVehicleBuilder(ABC):
     ''' Abstract Builder «interface» '''
 
     @staticmethod
