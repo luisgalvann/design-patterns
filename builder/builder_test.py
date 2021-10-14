@@ -55,7 +55,7 @@ class ConcreteBuilderTest(TestCase):
         self.assertIsInstance(builder, IVehicleBuilder)
 
         self.assertIsInstance(vehicle, Vehicle)
-        self.assertEqual(vehicle.vtype, 'Bike')
+        self.assertEqual(vehicle.vtype, 'bike')
         self.assertEqual(vehicle.wheels, 2)
 
 
@@ -69,7 +69,7 @@ class ConcreteBuilderTest(TestCase):
         self.assertIsInstance(builder, IVehicleBuilder)
 
         self.assertIsInstance(vehicle, Vehicle)
-        self.assertEqual(vehicle.vtype, 'Car')
+        self.assertEqual(vehicle.vtype, 'car')
         self.assertEqual(vehicle.wheels, 4)
 
 
@@ -78,18 +78,18 @@ class ProductTest(TestCase):
 
     def test_bike_instantiation(self):
         vehicle = Vehicle()
-        vehicle.vtype = 'Bike'
+        vehicle.vtype = 'bike'
         result = vehicle.run()
 
-        msg = 'The Bike is running'
+        msg = 'The bike is running'
         self.assertEqual(result, msg)
 
     def test_car_instantiation(self):
         vehicle = Vehicle()
-        vehicle.vtype = 'Car'
+        vehicle.vtype = 'car'
         result = vehicle.run()
 
-        msg = 'The Car is running'
+        msg = 'The car is running'
         self.assertEqual(result, msg)
 
 
@@ -97,17 +97,17 @@ class DirectorTest(TestCase):
     ''' Check instantiation of product class '''
 
     def test_engineer_bike_construction(self):
-        vehicle = Engineer.construct('Bike')
+        vehicle = Engineer.construct('bike')
 
         self.assertIsInstance(vehicle, Vehicle)
-        self.assertEqual(vehicle.vtype, 'Bike')
+        self.assertEqual(vehicle.vtype, 'bike')
         self.assertEqual(vehicle.wheels, 2)
 
     def test_engineer_car_construction(self):
-        vehicle = Engineer.construct('Car')
+        vehicle = Engineer.construct('car')
 
         self.assertIsInstance(vehicle, Vehicle)
-        self.assertEqual(vehicle.vtype, 'Car')
+        self.assertEqual(vehicle.vtype, 'car')
         self.assertEqual(vehicle.wheels, 4)
 
 

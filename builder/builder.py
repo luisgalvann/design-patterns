@@ -38,7 +38,7 @@ class BikeBuilder(IVehicleBuilder):
         self.vehicle = Vehicle()
 
     def set_vtype(self) -> None:
-        self.vehicle.vtype = 'Bike'
+        self.vehicle.vtype = 'bike'
 
     def set_wheels(self) -> None:
         self.vehicle.wheels = 2
@@ -54,7 +54,7 @@ class CarBuilder(IVehicleBuilder):
         self.vehicle = Vehicle()
 
     def set_vtype(self) -> None:
-        self.vehicle.vtype = 'Car'
+        self.vehicle.vtype = 'car'
 
     def set_wheels(self) -> None:
         self.vehicle.wheels = 4
@@ -69,8 +69,8 @@ class Engineer:
     @staticmethod
     def construct(vtype: str) -> Vehicle:
         builder = {
-            'Bike': BikeBuilder(),
-            'Car': CarBuilder()
+            'bike': BikeBuilder(),
+            'car': CarBuilder()
         }.get(vtype)
 
         builder.set_vtype()
