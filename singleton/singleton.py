@@ -7,7 +7,7 @@ class SingletonMeta(type):
 
     _instance = None
 
-    def __call__(self, *args, **kwargs):
+    def __call__(self, *args, **kwargs) -> SingletonMeta:
         if self._instance is None:
             self._instance = super().__call__(*args, **kwargs)
 
@@ -17,8 +17,8 @@ class SingletonMeta(type):
 class Singleton(metaclass=SingletonMeta):
     ''' Singleton Implementation '''
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.creation_time = datetime.now()
 
-    def get_creation_time(self):
+    def get_creation_time(self) -> datetime:
         return self.creation_time

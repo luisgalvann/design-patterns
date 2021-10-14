@@ -1,30 +1,30 @@
 from abc import ABC, abstractmethod
 
 
-class Shape(ABC):
+class IShape(ABC):
     ''' Abstract Shape «interface» '''
 
-    @staticmethod  # This way it doesn't need 'self'
+    @staticmethod
     @abstractmethod
     def draw() -> None:
         raise NotImplementedError
 
 
-class Circle(Shape):
+class Circle(IShape):
     ''' Concrete Shape Circle '''
 
     def draw(self) -> None:
         print('drawing a circle')
 
 
-class Square(Shape):
+class Square(IShape):
     ''' Concrete Shape Square '''
 
     def draw(self) -> None:
         print('drawing a square')
 
 
-class Rectangle(Shape):
+class Rectangle(IShape):
     ''' Concrete Shape Rectangle '''
 
     def draw(self) -> None:
@@ -35,11 +35,11 @@ class ShapeFactory:
     ''' ShapeFactory Implementation '''
     
     @staticmethod
-    def getShape(choice: str) -> Shape:
+    def getShape(stype: str) -> IShape:
         shape = {
             'circle': Circle(),
             'square': Square(),
             'rectangle': Rectangle(),
-        }.get(choice)
+        }.get(stype)
 
         return shape
