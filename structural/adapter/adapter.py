@@ -1,83 +1,50 @@
 from abc import ABC, abstractmethod
 
 
-class Duck(ABC):
-    ''' interface '''
+class HexSystem:
+    ''' Adaptee Implementation '''
+
+    def get_min_hex(self) -> str:
+        result = '7D0'
+        return result
+
+    def get_max_hex(self) -> str:
+        result = '3A98'
+        return result
+
+class IDecSystem(ABC):
+    ''' Target «interface»  '''
+
+    @staticmethod
     @abstractmethod
-    def quack():
-        pass
+    def get_min_dec() -> None:
+        raise NotImplementedError
 
+    @staticmethod
     @abstractmethod
-    def fly():
-        pass
+    def get_max_dec() -> None:
+        raise NotImplementedError
 
-class MallardDuck(Duck):
-    ''' concrete class '''
-    def quack():
-        print("Quack")
+class HexDecAdapter(HexSystem, IDecSystem): 
+    ''' Adapter Implementation '''
 
-    def fly():
-        print("Fly fly fly!")
+    def get_min_dec(self) -> int:
+        result = int(super().get_min_hex(), 16)
+        return result
 
-
-class Turkey(ABC):
-    ''' interface '''
-    @abstractmethod
-    def gobble(self):
-        pass
-
-    @abstractmethod
-    def fly(self):
-        pass
+    def get_max_dec(self) -> int:
+        result = int(super().get_max_hex(), 16)
+        return result
 
 
-class WildTurkey(Turkey):
-    ''' concrete class '''
-    def gobble(self):
-        print("Gobble gobble..")
+class AvgCalculator:
+    ''' Client Implementation '''
 
-    def fly(self):
-        print("Flying for a short distance")
-  
+    def __init__(self) -> None:
+        self.adapter = HexDecAdapter()
 
-# Suppose that we are short on Ducks and the solution is to use some
-# Turkey objects in their place. we would need to create an adapter
-
-# adaptador con composition
-class TurkeyAdapter(Duck):
-
-    def __init__(self, turkey: Turkey):
-        self.turkey: Turkey = turkey
-
-    def quack(self):
-        self.turkey.gobble()
-
-    def fly(self):
-        for i in range(5):
-            self.turkey.fly()
-
-
-# All that remains is to test our adapter:
-duck: MallardDuck = MallardDuck()
-turkey: WildTurkey = WildTurkey()
-
-turkeyAdapter: Duck  = TurkeyAdapter(turkey)
-turkeyAdapter.fly()
-turkeyAdapter.quack()
-
-# adaptador con herencia múltiple
-class TurkeyAdapterMult(Duck, WildTurkey):
-
-    def quack(self):
-        self.gobble()
-
-    def fly(self):
-        print('ads')
-        WildTurkey.fly(self)
-
-
-
-turkeyAdapterMult: Duck  = TurkeyAdapterMult()
-
-turkeyAdapterMult.quack()
-turkeyAdapterMult.fly()
+    def get_avg_dec(self) -> int:
+        a = self.adapter.get_max_dec()
+        b = self.adapter.get_min_dec()
+        result = (a + b) / 2
+        return result
