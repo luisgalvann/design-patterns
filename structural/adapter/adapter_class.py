@@ -41,10 +41,10 @@ class AvgCalculator:
     ''' Client Implementation '''
 
     def __init__(self) -> None:
-        self.adapter = HexDecAdapter()
+        self.system = HexDecAdapter()
 
     def get_avg_dec(self) -> float:
-        a = self.adapter.get_min_dec()
-        b = self.adapter.get_max_dec()
+        a = self.system.get_min_dec()
+        b = self.system.get_max_dec()
         result = (a + b) / 2
         return result
