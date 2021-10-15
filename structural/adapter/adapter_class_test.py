@@ -1,7 +1,8 @@
 import unittest
 from unittest import TestCase
-from adapter_class import HexSystem, IDecSystem, HexDecAdapter, AvgCalculator
-
+from adapter_class import (
+    HexadecimalSystem, IDecimalSystem, 
+    HexDecAdapter, AvgCalculator)
 
 
 class AbstractSystemTest(TestCase):
@@ -9,14 +10,14 @@ class AbstractSystemTest(TestCase):
 
     def test_abstract_instantiation_error(self):
         with self.assertRaises(TypeError) as cm:
-            instance = IDecSystem()
+            instance = IDecimalSystem()
 
-        msg = "Can't instantiate abstract class IDecSystem with abstract "\
+        msg = "Can't instantiate abstract class IDecimalSystem with abstract "\
               "methods get_max_dec, get_min_dec"
         self.assertEqual(msg, str(cm.exception))
 
     def test_abstract_inheritance_error(self):
-        class NewClass(IDecSystem):
+        class NewClass(IDecimalSystem):
             pass
 
         with self.assertRaises(TypeError) as cm:
@@ -27,7 +28,7 @@ class AbstractSystemTest(TestCase):
         self.assertEqual(msg, str(cm.exception))
 
     def test_abstract_inheritance(self):
-        class NewClass(IDecSystem):
+        class NewClass(IDecimalSystem):
             def get_min_dec(self):
                 pass
 
@@ -37,19 +38,19 @@ class AbstractSystemTest(TestCase):
         instance = NewClass()
 
         self.assertIsInstance(instance, NewClass)
-        self.assertIsInstance(instance, IDecSystem)
+        self.assertIsInstance(instance, IDecimalSystem)
 
 
 class AdapteeSystemTest(TestCase):
     ''' Test instantiation and methods of adaptee class '''
 
     def test_system_instantiation(self):
-        system = HexSystem()
+        system = HexadecimalSystem()
         
-        self.assertIsInstance(system, HexSystem)
+        self.assertIsInstance(system, HexadecimalSystem)
 
     def test_system_methods(self):
-        system = HexSystem()
+        system = HexadecimalSystem()
         result_a = system.get_min_hex()
         result_b = system.get_max_hex()
 
@@ -63,8 +64,8 @@ class AdapterSystemTest(TestCase):
     def test_system_instantiation(self):
         system = HexDecAdapter()
         
-        self.assertIsInstance(system, HexSystem)
-        self.assertIsInstance(system, IDecSystem)
+        self.assertIsInstance(system, HexadecimalSystem)
+        self.assertIsInstance(system, IDecimalSystem)
         self.assertIsInstance(system, HexDecAdapter)
 
     def test_system_methods(self):
@@ -88,8 +89,8 @@ class ClientTest(TestCase):
         client = AvgCalculator()
         adapter = client.system
 
-        self.assertIsInstance(adapter, HexSystem)
-        self.assertIsInstance(adapter, IDecSystem)
+        self.assertIsInstance(adapter, HexadecimalSystem)
+        self.assertIsInstance(adapter, IDecimalSystem)
         self.assertIsInstance(adapter, HexDecAdapter)
 
     def test_client_method(self):

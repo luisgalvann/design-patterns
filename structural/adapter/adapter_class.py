@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class HexSystem:
+class HexadecimalSystem:
     ''' Adaptee Implementation '''
 
     def get_min_hex(self) -> str:
@@ -12,7 +12,7 @@ class HexSystem:
         result = '3A98'
         return result
 
-class IDecSystem(ABC):
+class IDecimalSystem(ABC):
     ''' Target «interface»  '''
 
     @staticmethod
@@ -25,7 +25,7 @@ class IDecSystem(ABC):
     def get_max_dec() -> None:
         raise NotImplementedError
 
-class HexDecAdapter(HexSystem, IDecSystem): 
+class HexDecAdapter(HexadecimalSystem, IDecimalSystem): 
     ''' Adapter Implementation '''
 
     def get_min_dec(self) -> int:
