@@ -43,8 +43,8 @@ class AvgCalculator:
     def __init__(self) -> None:
         self.adapter = HexDecAdapter()
 
-    def get_avg_dec(self) -> int:
-        a = self.adapter.get_max_dec()
-        b = self.adapter.get_min_dec()
+    def get_avg_dec(self) -> float:
+        a = self.adapter.get_min_dec()
+        b = self.adapter.get_max_dec()
         result = (a + b) / 2
         return result

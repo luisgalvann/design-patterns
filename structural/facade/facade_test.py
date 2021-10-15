@@ -4,7 +4,7 @@ from facade import WashingSystem, RinsingSystem, SpinningSystem, WashingMachine
 
 
 class FacadeTest(TestCase):
-    ''' Check Facade instantiation and its attributes and methods '''
+    ''' Test instantiation and methods of Facade class '''
 
     def test_facade_instantiation(self):
         facade = WashingMachine()
@@ -26,7 +26,7 @@ class FacadeTest(TestCase):
 
 
 class SubsystemsTest(TestCase):
-    ''' Check Facade subsystems instantiation and their methods '''
+    ''' Test instantiation and methods of subsystem classes '''
 
     def test_subsystems_instantiation(self):
         subsystem_a = WashingSystem()

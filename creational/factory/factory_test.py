@@ -4,7 +4,7 @@ from factory import IShape, Circle, Square, Rectangle, ShapeFactory
 
 
 class AbstractShapeTest(TestCase):
-    ''' Check instantiation of abstract shape class '''
+    ''' Test instantiation of abstract shape class '''
 
     def test_abstract_instantiation_error(self):
         with self.assertRaises(TypeError) as cm:
@@ -35,7 +35,7 @@ class AbstractShapeTest(TestCase):
 
 
 class ConcreteShapeTest(TestCase):
-    ''' Check instantiation of concrete shape classes '''
+    ''' Test instantiation of concrete shape classes '''
 
     def test_circle_instantiation(self):
         shape = ShapeFactory.getShape('circle')

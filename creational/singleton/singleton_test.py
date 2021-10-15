@@ -5,7 +5,7 @@ from singleton import Singleton
 
 
 class SingletonTest(TestCase):
-    ''' Check different singleton instantiations '''
+    ''' Test instantiation and method of singleton class '''
 
     def test_singleton_instantiation(self):
         first_instance = Singleton()

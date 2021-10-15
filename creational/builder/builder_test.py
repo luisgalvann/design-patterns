@@ -4,7 +4,7 @@ from builder import Vehicle, IVehicleBuilder, BikeBuilder, CarBuilder, Engineer
 
 
 class AbstractBuilderTest(TestCase):
-    ''' Check instantiation of abstract builder class '''
+    ''' Test instantiation of abstract builder class '''
 
     def test_abstract_instantiation_error(self):
         with self.assertRaises(TypeError) as cm:
@@ -46,7 +46,7 @@ class AbstractBuilderTest(TestCase):
 
 
 class ConcreteBuilderTest(TestCase):
-    ''' Check instantiation of concrete builder classes '''
+    ''' Test instantiation and methods of concrete builder classes '''
 
     def test_bike_builder(self):
         builder = BikeBuilder()
@@ -77,7 +77,7 @@ class ConcreteBuilderTest(TestCase):
 
 
 class ProductTest(TestCase):
-    ''' Check instantiation of product class '''
+    ''' Test instantiation and methods of product class '''
 
     def test_bike_instantiation(self):
         vehicle = Vehicle()
@@ -97,7 +97,7 @@ class ProductTest(TestCase):
 
 
 class DirectorTest(TestCase):
-    ''' Check instantiation of product class '''
+    ''' Test instantiation and methods of director class '''
 
     def test_engineer_bike_construction(self):
         vehicle = Engineer.construct('bike')
