@@ -1,5 +1,6 @@
 from abc import ABC, abstractstaticmethod
 from datetime import datetime
+from typing import Any
 
 
 class ICommand(ABC):
@@ -17,7 +18,7 @@ class ICommand(ABC):
 class SwitchOnCommand(ICommand):
     ''' Concrete «switch on» command implementation '''
 
-    def __init__(self, receiver) -> None:
+    def __init__(self, receiver: Any) -> None:
         self.receiver = receiver
 
     def execute(self) -> None:
@@ -27,7 +28,7 @@ class SwitchOnCommand(ICommand):
 class SwitchOffCommand(ICommand):
     ''' Concrete «switch off» command implementation '''
 
-    def __init__(self, receiver) -> None:
+    def __init__(self, receiver: Any) -> None:
         self.receiver = receiver
 
     def execute(self) -> None:
@@ -51,10 +52,10 @@ class Switch:
         self.commands = {}
         self.history = []
 
-    def register(self, cname, command) -> None:
+    def register(self, cname: str, command: ICommand) -> None:
         self.commands[cname] = command
 
-    def execute(self, cname) -> None:
+    def execute(self, cname: str) -> None:
         if cname in self.commands.keys():
             self.commands[cname].execute()
             self.history.append((datetime.now(), cname))
