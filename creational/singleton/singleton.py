@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from typing import Any
 
 # The Singleton class can be implemented in different ways. 
 # Some methods include: metaclass, base class or decorator.
@@ -8,13 +8,13 @@ from datetime import datetime
 class SingletonMeta(type):
     ''' Singleton metaclass implementation '''
 
-    _instance = None
+    instance: Any = None
 
-    def __call__(self, *args, **kwargs) -> SingletonMeta:
-        if self._instance is None:
-            self._instance = super().__call__(*args, **kwargs)
+    def __call__(self, *args, **kwargs) -> Any:
+        if self.instance is None:
+            self.instance = super().__call__(*args, **kwargs)
 
-        return self._instance
+        return self.instance
 
 
 class Singleton(metaclass=SingletonMeta):

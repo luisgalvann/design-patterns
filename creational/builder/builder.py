@@ -5,8 +5,8 @@ class Vehicle:
     ''' Product class implementation '''
 
     def __init__(self):
-        self.vtype = None
-        self.wheels = None
+        self.vtype: str = None
+        self.wheels: int = None
 
     def run(self) -> str:
         return f'The {self.vtype} is running'
