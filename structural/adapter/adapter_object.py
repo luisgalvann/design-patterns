@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+from abc import ABC, abstractstaticmethod
 
 
 class HexadecimalSystem:
@@ -15,13 +15,11 @@ class HexadecimalSystem:
 class IDecimalSystem(ABC):
     ''' Target «interface»  '''
 
-    @staticmethod
-    @abstractmethod
+    @abstractstaticmethod
     def get_min_dec() -> None:
         raise NotImplementedError
 
-    @staticmethod
-    @abstractmethod
+    @abstractstaticmethod
     def get_max_dec() -> None:
         raise NotImplementedError
 

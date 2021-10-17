@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+from abc import ABC, abstractstaticmethod
 
 
 class Vehicle:
@@ -15,23 +15,19 @@ class Vehicle:
 class IVehicleBuilder(ABC):
     ''' Abstract Builder «interface» '''
 
-    @staticmethod
-    @abstractmethod
+    @abstractstaticmethod
     def __init__() -> None:
         raise NotImplementedError
 
-    @staticmethod
-    @abstractmethod
+    @abstractstaticmethod
     def set_vtype() -> None:
         raise NotImplementedError
 
-    @staticmethod
-    @abstractmethod
+    @abstractstaticmethod
     def set_wheels() -> None:
         raise NotImplementedError
 
-    @staticmethod
-    @abstractmethod
+    @abstractstaticmethod
     def get_vehicle() -> None:
         raise NotImplementedError
 

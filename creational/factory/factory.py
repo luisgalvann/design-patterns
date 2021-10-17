@@ -1,11 +1,10 @@
-from abc import ABC, abstractmethod
+from abc import ABC, abstractstaticmethod
 
 
 class IShape(ABC):
     ''' Abstract Shape «interface» '''
 
-    @staticmethod
-    @abstractmethod
+    @abstractstaticmethod
     def draw() -> None:
         raise NotImplementedError
 
