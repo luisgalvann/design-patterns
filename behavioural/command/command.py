@@ -34,7 +34,6 @@ class SwitchOffCommand(ICommand):
         self.receiver.turn_off()
 
 
-
 class Light:
     ''' Receiver Class Implementation '''
 
@@ -43,6 +42,7 @@ class Light:
 
     def turn_off(self) -> None:
         print('Light turned OFF')
+
 
 class Switch:
     ''' Invoker Class Implementation '''
