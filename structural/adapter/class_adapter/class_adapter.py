@@ -2,7 +2,7 @@ from abc import ABC, abstractstaticmethod
 
 
 class HexadecimalSystem:
-    ''' Adaptee Implementation '''
+    ''' Adaptee Class Implementation '''
 
     def get_min_hex(self) -> str:
         result = '7D0'
@@ -13,7 +13,7 @@ class HexadecimalSystem:
         return result
 
 class IDecimalSystem(ABC):
-    ''' Target «interface»  '''
+    ''' Abstract Target «interface» Implementation '''
 
     @abstractstaticmethod
     def get_min_dec() -> None:
@@ -24,7 +24,7 @@ class IDecimalSystem(ABC):
         raise NotImplementedError
 
 class HexDecAdapter(HexadecimalSystem, IDecimalSystem): 
-    ''' Adapter Implementation '''
+    ''' Adapter Class Implementation '''
 
     def get_min_dec(self) -> int:
         result = int(super().get_min_hex(), 16)
@@ -36,7 +36,7 @@ class HexDecAdapter(HexadecimalSystem, IDecimalSystem):
 
 
 class AvgCalculator:
-    ''' Client Implementation '''
+    ''' Client Class Implementation '''
 
     def __init__(self) -> None:
         self.system = HexDecAdapter()

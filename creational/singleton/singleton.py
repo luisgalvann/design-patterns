@@ -1,9 +1,12 @@
 from datetime import datetime
 
 
+# The Singleton class can be implemented in different ways. 
+# Some methods include: metaclass, base class or decorator.
+
+
 class SingletonMeta(type):
-    ''' The Singleton class can be implemented in different ways. 
-    Some methods include: metaclass, base class or decorator '''
+    ''' Singleton Metaclass Implementation '''
 
     _instance = None
 
@@ -15,7 +18,7 @@ class SingletonMeta(type):
 
 
 class Singleton(metaclass=SingletonMeta):
-    ''' Singleton Implementation '''
+    ''' Singleton Class Implementation '''
 
     def __init__(self) -> None:
         self.creation_time = datetime.now()
