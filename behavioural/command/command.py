@@ -60,5 +60,5 @@ class Switch:
             self.history.append((datetime.now(), cname))
 
     def get_history(self) -> None:
-        for row in self.history:
-            print(row[0].strftime('%H:%M:%S'), row[1])
+        for ctime, cname in self.history:
+            print(ctime.strftime('%H:%M:%S'), cname)
