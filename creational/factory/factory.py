@@ -2,7 +2,7 @@ from abc import ABC, abstractstaticmethod
 
 
 class IShape(ABC):
-    ''' Abstract Shape «interface» Implementation '''
+    ''' Abstract shape «interface» implementation '''
 
     @abstractstaticmethod
     def draw() -> None:
@@ -10,28 +10,28 @@ class IShape(ABC):
 
 
 class Circle(IShape):
-    ''' Concrete Shape Circle Implementation '''
+    ''' Concrete circle class implementation '''
 
     def draw(self) -> None:
         print('drawing a circle')
 
 
 class Square(IShape):
-    ''' Concrete Shape Square Implementation '''
+    ''' Concrete square class implementation '''
 
     def draw(self) -> None:
         print('drawing a square')
 
 
 class Rectangle(IShape):
-    ''' Concrete Shape Rectangle Implementation '''
+    ''' Concrete rectangle class implementation '''
 
     def draw(self) -> None:
         print('drawing a rectangle')
 
 
 class ShapeFactory:
-    ''' ShapeFactory Class Implementation '''
+    ''' ShapeFactory class implementation '''
     
     @staticmethod
     def getShape(stype: str) -> IShape:

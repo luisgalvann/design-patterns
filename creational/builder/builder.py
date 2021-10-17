@@ -2,7 +2,7 @@ from abc import ABC, abstractstaticmethod
 
 
 class Vehicle:
-    ''' Product Class Implementation '''
+    ''' Product class implementation '''
 
     def __init__(self):
         self.vtype = None
@@ -13,7 +13,7 @@ class Vehicle:
 
 
 class IVehicleBuilder(ABC):
-    ''' Abstract Builder «interface» Implementation '''
+    ''' Abstract builder «interface» implementation '''
 
     @abstractstaticmethod
     def __init__() -> None:
@@ -33,7 +33,7 @@ class IVehicleBuilder(ABC):
 
 
 class BikeBuilder(IVehicleBuilder):
-    ''' Concrete Bike Builder Implementation '''
+    ''' Concrete bike builder class implementation '''
 
     def __init__(self) -> None:
         self.vehicle = Vehicle()
@@ -49,7 +49,7 @@ class BikeBuilder(IVehicleBuilder):
 
 
 class CarBuilder(IVehicleBuilder):
-    ''' Concrete Car Builder Implementation '''
+    ''' Concrete car builder class implementation '''
 
     def __init__(self) -> None:
         self.vehicle = Vehicle()
@@ -65,7 +65,7 @@ class CarBuilder(IVehicleBuilder):
 
 
 class Engineer:
-    ''' Director Class Implementation '''
+    ''' Director class implementation '''
 
     @staticmethod
     def construct(vtype: str) -> Vehicle:

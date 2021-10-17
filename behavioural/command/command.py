@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 class ICommand(ABC):
-    ''' Abstract Command «interface» Implementation '''
+    ''' Abstract command «interface» implementation '''
 
     @abstractstaticmethod
     def __init__() -> None:
@@ -15,7 +15,7 @@ class ICommand(ABC):
 
 
 class SwitchOnCommand(ICommand):
-    ''' Concrete Switch On Command Implementation '''
+    ''' Concrete «switch on» command implementation '''
 
     def __init__(self, receiver) -> None:
         self.receiver = receiver
@@ -25,7 +25,7 @@ class SwitchOnCommand(ICommand):
 
 
 class SwitchOffCommand(ICommand):
-    ''' Concrete Switch Off Command Implementation '''
+    ''' Concrete «switch off» command implementation '''
 
     def __init__(self, receiver) -> None:
         self.receiver = receiver
@@ -35,7 +35,7 @@ class SwitchOffCommand(ICommand):
 
 
 class Light:
-    ''' Receiver Class Implementation '''
+    ''' Receiver class implementation '''
 
     def turn_on(self) -> None:
         print('Light turned ON')
@@ -45,7 +45,7 @@ class Light:
 
 
 class Switch:
-    ''' Invoker Class Implementation '''
+    ''' Invoker class implementation '''
 
     def __init__(self) -> None:
         self.commands = {}

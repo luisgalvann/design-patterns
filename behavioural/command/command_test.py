@@ -1,15 +1,14 @@
 from command import ICommand, SwitchOnCommand, SwitchOffCommand, Light, Switch
 
 
-LIGHT = Light()
-SWITCH = Switch()
-on_command = SwitchOnCommand(LIGHT)
-off_command = SwitchOffCommand(LIGHT)
+light = Light()
+switch = Switch()
+on_command = SwitchOnCommand(light)
+off_command = SwitchOffCommand(light)
 
-SWITCH.register('LIGHT ON', on_command)
-SWITCH.register('LIGHT OFF', off_command)
+switch.register('LIGHT ON', on_command)
+switch.register('LIGHT OFF', off_command)
+switch.execute('LIGHT ON')
+switch.execute('LIGHT OFF')
 
-SWITCH.execute('LIGHT ON')
-SWITCH.execute('LIGHT OFF')
-
-SWITCH.get_history()
+switch.get_history()

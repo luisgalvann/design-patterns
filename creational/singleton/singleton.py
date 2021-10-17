@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 class SingletonMeta(type):
-    ''' Singleton Metaclass Implementation '''
+    ''' Singleton metaclass implementation '''
 
     _instance = None
 
@@ -18,7 +18,7 @@ class SingletonMeta(type):
 
 
 class Singleton(metaclass=SingletonMeta):
-    ''' Singleton Class Implementation '''
+    ''' Singleton class implementation '''
 
     def __init__(self) -> None:
         self.creation_time = datetime.now()
