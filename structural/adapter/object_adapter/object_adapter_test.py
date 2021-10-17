@@ -1,6 +1,6 @@
 import unittest
 from unittest import TestCase
-from adapter_class import (
+from object_adapter import (
     HexadecimalSystem, IDecimalSystem, 
     HexDecAdapter, AvgCalculator)
 
@@ -64,7 +64,6 @@ class AdapterSystemTest(TestCase):
     def test_system_instantiation(self):
         system = HexDecAdapter()
         
-        self.assertIsInstance(system, HexadecimalSystem)
         self.assertIsInstance(system, IDecimalSystem)
         self.assertIsInstance(system, HexDecAdapter)
 
@@ -89,7 +88,6 @@ class ClientTest(TestCase):
         client = AvgCalculator()
         adapter = client.system
 
-        self.assertIsInstance(adapter, HexadecimalSystem)
         self.assertIsInstance(adapter, IDecimalSystem)
         self.assertIsInstance(adapter, HexDecAdapter)
 
