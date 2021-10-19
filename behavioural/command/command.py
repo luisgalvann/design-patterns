@@ -21,8 +21,9 @@ class SwitchOnCommand(ICommand):
     def __init__(self, receiver: Any) -> None:
         self.receiver = receiver
 
-    def execute(self) -> None:
-        self.receiver.turn_on()
+    def execute(self) -> str:
+        result = self.receiver.turn_on()
+        return result
 
 
 class SwitchOffCommand(ICommand):
@@ -31,18 +32,19 @@ class SwitchOffCommand(ICommand):
     def __init__(self, receiver: Any) -> None:
         self.receiver = receiver
 
-    def execute(self) -> None:
-        self.receiver.turn_off()
+    def execute(self) -> str:
+        result = self.receiver.turn_off()
+        return result
 
 
 class Light:
     ''' Receiver class implementation '''
 
-    def turn_on(self) -> None:
-        print('Light turned ON')
+    def turn_on(self) -> str:
+        return 'Light turned ON'
 
-    def turn_off(self) -> None:
-        print('Light turned OFF')
+    def turn_off(self) -> str:
+        return 'Light turned OFF'
 
 
 class Switch:
@@ -57,8 +59,9 @@ class Switch:
 
     def execute(self, cname: str) -> None:
         if cname in self.commands.keys():
-            self.commands[cname].execute()
+            result = self.commands[cname].execute()
             self.history.append((datetime.now(), cname))
+            return result
 
     def get_history(self) -> None:
         for ctime, cname in self.history:
