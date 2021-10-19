@@ -1,6 +1,8 @@
 import unittest
 from unittest import TestCase
-from command import ICommand, SwitchOnCommand, SwitchOffCommand, Light, Switch
+from command import (
+    ICommand, SwitchOnCommand, 
+    SwitchOffCommand, Light, Switch)
 
 
 class AbstractCommandTest(TestCase):
@@ -10,7 +12,8 @@ class AbstractCommandTest(TestCase):
         with self.assertRaises(TypeError) as cm:
             instance = ICommand()
 
-        msg = "Can't instantiate abstract class ICommand with abstract methods __init__, execute"
+        msg = "Can't instantiate abstract class ICommand with abstract " \
+              "methods __init__, execute"
         self.assertEqual(msg, str(cm.exception))
 
     def test_abstract_inheritance_error(self):
@@ -20,7 +23,8 @@ class AbstractCommandTest(TestCase):
         with self.assertRaises(TypeError) as cm:
             instance = NewClass()
 
-        msg = "Can't instantiate abstract class NewClass with abstract methods __init__, execute"
+        msg = "Can't instantiate abstract class NewClass with abstract " \
+              "methods __init__, execute"
         self.assertEqual(msg, str(cm.exception))
 
     def test_abstract_inheritance(self):
