@@ -1,7 +1,5 @@
 import unittest
 from unittest import TestCase
-import io
-import sys
 from command import ICommand, SwitchOnCommand, SwitchOffCommand, Light, Switch
 
 
