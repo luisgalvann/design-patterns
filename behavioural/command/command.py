@@ -1,6 +1,6 @@
 from abc import ABC, abstractstaticmethod
 from datetime import datetime
-from typing import Any
+from typing import Any, List, Dict
 
 
 class ICommand(ABC):
@@ -51,8 +51,8 @@ class Switch:
     ''' Invoker class implementation '''
 
     def __init__(self) -> None:
-        self.commands = {}
-        self.history = []
+        self.commands: Dict[str, ICommand] = {}
+        self.history: List[tuple] = []
 
     def register(self, cname: str, command: ICommand) -> None:
         self.commands[cname] = command
