@@ -8,11 +8,11 @@ class ICommand(ABC):
 
     @abstractstaticmethod
     def __init__() -> None:
-        pass
+        raise NotImplementedError
 
     @abstractstaticmethod
     def execute() -> None:
-        pass
+        raise NotImplementedError
 
 
 class SwitchOnCommand(ICommand):
