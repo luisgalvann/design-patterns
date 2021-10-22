@@ -47,15 +47,13 @@ class Light:
         return 'Light turned OFF'
 
 
-# Custom types
-CommandDict = Dict[str, ICommand]
-HistoryList = List[Tuple[datetime, str]]
-
-
 class Switch:
     ''' Invoker class implementation '''
 
     def __init__(self) -> None:
+        CommandDict = Dict[str, ICommand]
+        HistoryList = List[Tuple[datetime, str]]
+
         self.commands: CommandDict = {}
         self.history: HistoryList = []
 
